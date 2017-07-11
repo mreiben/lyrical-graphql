@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
-import SongList from './components/SongList';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import App from './components/App';
+import SongList from './components/SongList';
 import SongCreate from './components/SongCreate';
 
 const client = new ApolloClient({});

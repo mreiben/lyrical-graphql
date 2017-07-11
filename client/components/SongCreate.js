@@ -15,7 +15,9 @@ class SongCreate extends Component {
     event.preventDefault();
 
     this.props.mutate({
+      //runs the mutation with variables take from the current state
       variables: { title: this.state.title },
+      //run the query after mutation is done to make sure react renders changes
       refetchQueries: [{ query: fetchSongsQuery }]
     }).then(() => hashHistory.push('/'));
   }
@@ -37,6 +39,7 @@ class SongCreate extends Component {
   }
 }
 
+//allows mutation to run with input data, not hard-coded data
 const mutation = gql`
   mutation AddSong($title: String){
     addSong(title: $title){
@@ -45,4 +48,5 @@ const mutation = gql`
   }
 `;
 
+//adds the mutation to this.props.mutate
 export default graphql(mutation)(SongCreate);
